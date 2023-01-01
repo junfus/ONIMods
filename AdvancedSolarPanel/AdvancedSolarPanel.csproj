@@ -64,9 +64,6 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\lib\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>..\lib\UnityEngine.UI.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SolarPanelPatches.cs" />
@@ -81,7 +78,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(ProjectDir)*.yaml" "%userprofile%\Documents\Klei\OxygenNotIncluded\mods\Dev\Advanced Solar Panel" /d /y
-xcopy "$(TargetPath)" "%userprofile%\Documents\Klei\OxygenNotIncluded\mods\Dev\Advanced Solar Panel" /d /y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(ProjectDir)*.yaml" "%25userprofile%25\Documents\Klei\OxygenNotIncluded\mods\Dev\Advanced Solar Panel" /d /y /i
+xcopy "$(TargetPath)" "%25userprofile%25\Documents\Klei\OxygenNotIncluded\mods\Dev\Advanced Solar Panel" /d /y /i</PostBuildEvent>
   </PropertyGroup>
 </Project>

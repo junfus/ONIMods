@@ -2,16 +2,8 @@ using HarmonyLib;
 using PeterHan.PLib.Core;
 using PeterHan.PLib.Options;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Reflection.Emit;
 using TUNING;
-using UnityEngine;
-using static KAnim;
-using static ResearchTypes;
-using static STRINGS.DUPLICANTS.ATTRIBUTES;
-using static STRINGS.DUPLICANTS.STATS;
-using static STRINGS.UI.ELEMENTAL;
-using static TUNING.BUILDINGS;
 
 namespace AdjustableBattery
 {

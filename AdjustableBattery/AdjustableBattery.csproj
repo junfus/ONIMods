@@ -62,9 +62,6 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\lib\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>..\lib\UnityEngine.UI.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BatteryMediumOptions.cs" />
@@ -79,7 +76,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(ProjectDir)*.yaml" "%userprofile%\Documents\Klei\OxygenNotIncluded\mods\Dev\Adjustable Battery" /d /y 
-xcopy "$(TargetPath)" "%userprofile%\Documents\Klei\OxygenNotIncluded\mods\Dev\Adjustable Battery" /d /y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(ProjectDir)*.yaml" "%25userprofile%25\Documents\Klei\OxygenNotIncluded\mods\Dev\Adjustable Battery" /d /y /i
+xcopy "$(TargetPath)" "%25userprofile%25\Documents\Klei\OxygenNotIncluded\mods\Dev\Adjustable Battery" /d /y /i</PostBuildEvent>
   </PropertyGroup>
 </Project>

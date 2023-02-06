@@ -18,6 +18,16 @@ namespace AdvancedMiniLiquidPump
         }
 
         [HarmonyPatch(typeof(LiquidMiniPumpConfig))]
+        [HarmonyPatch(nameof(LiquidMiniPumpConfig.CreateBuildingDef))]
+        class SolarPanelConfigPatches
+        {
+            static void Postfix(BuildingDef __result)
+            {
+                __result.EnergyConsumptionWhenActive = (float)LiquidMiniPumpOptions.Instance.Watts;
+            }
+        }
+
+        [HarmonyPatch(typeof(LiquidMiniPumpConfig))]
         [HarmonyPatch(nameof(LiquidMiniPumpConfig.DoPostConfigureComplete))]
         class LiquidMiniPumpConfigPatches
         {

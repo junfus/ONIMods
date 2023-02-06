@@ -18,6 +18,17 @@ namespace AdvancedSolarPanel
             new POptions().RegisterOptions(this, typeof(SolarPanelOptions));
         }
 
+        [HarmonyPatch(typeof(SolarPanelConfig))]
+        [HarmonyPatch(nameof(SolarPanelConfig.CreateBuildingDef))]
+        class SolarPanelConfigPatches
+        {
+            static void Postfix(BuildingDef __result)
+            {
+                __result.GeneratorWattageRating = (float)SolarPanelOptions.Instance.Watts;
+                __result.GeneratorBaseCapacity = (float)SolarPanelOptions.Instance.Watts;
+            }
+        }
+
         [HarmonyPatch(typeof(SolarPanel))]
         [HarmonyPatch(nameof(SolarPanel.EnergySim200ms))]
         class SolarPanelPatches
@@ -44,18 +55,6 @@ namespace AdvancedSolarPanel
 
                     yield return instruction;
                 }
-            }
-        }
-
-        [HarmonyPatch(typeof(SolarPanelConfig))]
-        [HarmonyPatch(nameof(SolarPanelConfig.CreateBuildingDef))]
-        class SolarPanelConfigPatches
-        {
-            static BuildingDef Postfix(BuildingDef buildingDef)
-            {
-                buildingDef.GeneratorWattageRating = (float)SolarPanelOptions.Instance.Watts;
-                buildingDef.GeneratorBaseCapacity = buildingDef.GeneratorWattageRating;
-                return buildingDef;
             }
         }
     }

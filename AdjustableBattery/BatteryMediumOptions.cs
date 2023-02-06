@@ -21,11 +21,16 @@ namespace AdjustableBattery
         [JsonProperty]
         public bool MoreMass { get; set; }
 
+        [Option("SelfHeat", "Default is true")]
+        [JsonProperty]
+        public bool SelfHeat { get; set; }
+
         public BatteryMediumOptions()
         {
             Capacity = 40;
             JoulesLostPercentage = 5;
             MoreMass = false;
+            SelfHeat = true;
         }
     }
 }

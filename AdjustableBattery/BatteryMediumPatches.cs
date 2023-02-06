@@ -12,7 +12,6 @@ namespace AdjustableBattery
         public const int SecondsPerCycle = 600;
         public const float DefaultCapacity = 40000f;
         public const float DefaultJoulesLost = 3.33333325f;
-        public const string ID = "BatteryMedium";
 
         public override void OnLoad(Harmony harmony)
         {
@@ -28,6 +27,8 @@ namespace AdjustableBattery
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
                 float capacity = (float)BatteryMediumOptions.Instance.Capacity * 1000;
+                float actualLost = capacity * (BatteryMediumOptions.Instance.JoulesLostPercentage / 100f) / SecondsPerCycle;
+
                 foreach (var instruction in instructions)
                 {
                     if (instruction.opcode == OpCodes.Ldc_R4)
@@ -39,7 +40,6 @@ namespace AdjustableBattery
                                 instruction.operand = capacity;
                                 break;
                             case DefaultJoulesLost:
-                                float actualLost = capacity * (BatteryMediumOptions.Instance.JoulesLostPercentage / 100f) / SecondsPerCycle;
                                 instruction.operand = actualLost;
                                 break;
                             default:
@@ -56,36 +56,19 @@ namespace AdjustableBattery
         [HarmonyPatch(nameof(BatteryMediumConfig.CreateBuildingDef))]
         class BatteryMediumConfigCtorPatch
         {
-            static bool Prefix(ref BuildingDef __result)
+            static void Postfix(BuildingDef __result)
             {
-                float capacity = (float)BatteryMediumOptions.Instance.Capacity * 1000;
-                float fixedMass = BatteryMediumOptions.Instance.MoreMass ?
-                    capacity / DefaultCapacity * BUILDINGS.CONSTRUCTION_MASS_KG.TIER4[0] :
-                    BUILDINGS.CONSTRUCTION_MASS_KG.TIER4[0];
+                if (BatteryMediumOptions.Instance.MoreMass)
+                {
+                    float capacity = (float)BatteryMediumOptions.Instance.Capacity * 1000;
+                    __result.Mass = new float[1] { capacity / DefaultCapacity * BUILDINGS.CONSTRUCTION_MASS_KG.TIER4[0] };
+                }
 
-                __result = BuildingTemplates.CreateBuildingDef(
-                    "BatteryMedium",
-                    2,
-                    2,
-                    "batterymed_kanim",
-                    30,
-                    60f,
-                    new float[1] { fixedMass },
-                    MATERIALS.ALL_METALS,
-                    800f,
-                    BuildLocationRule.OnFloor,
-                    BUILDINGS.DECOR.PENALTY.TIER2,
-                    NOISE_POLLUTION.NOISY.TIER1);
-
-                __result.ExhaustKilowattsWhenActive = 0.25f;
-                __result.SelfHeatKilowattsWhenActive = 1f;
-                __result.Entombable = false;
-                __result.ViewMode = OverlayModes.Power.ID;
-                __result.AudioCategory = "Metal";
-                __result.RequiresPowerOutput = true;
-                __result.UseWhitePowerOutputConnectorColour = true;
-
-                return false;
+                if (!BatteryMediumOptions.Instance.SelfHeat)
+                {
+                    __result.ExhaustKilowattsWhenActive = 0f;
+                    __result.SelfHeatKilowattsWhenActive = 0f;
+                }
             }
         }
     }

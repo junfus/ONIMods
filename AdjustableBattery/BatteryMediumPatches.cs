@@ -22,16 +22,36 @@ namespace AdjustableBattery
         }
 
         [HarmonyPatch(typeof(BatteryMediumConfig))]
-        [HarmonyPatch(nameof(BatteryMediumConfig.DoPostConfigureComplete))]
-        class BatteryMediumConfig_DoPostConfigureComplete_Patch
+        class Patch_BatteryMediumConfig
         {
-            static void Postfix(GameObject go)
+            [HarmonyPostfix]
+            [HarmonyPatch(nameof(BatteryMediumConfig.CreateBuildingDef))]
+            static void Postfix_CreateBuildingDef(BuildingDef __result)
+            {
+                if (BatteryMediumOptions.Instance.MoreMass)
+                {
+                    float capacity = (float)BatteryMediumOptions.Instance.Capacity * 1000;
+                    __result.Mass = new float[1] { capacity / DefaultCapacity * BUILDINGS.CONSTRUCTION_MASS_KG.TIER4[0] };
+                }
+
+                if (!BatteryMediumOptions.Instance.SelfHeat)
+                {
+                    __result.ExhaustKilowattsWhenActive = 0f;
+                    __result.SelfHeatKilowattsWhenActive = 0f;
+                }
+            }
+
+            [HarmonyPostfix]
+            [HarmonyPatch(nameof(BatteryMediumConfig.DoPostConfigureComplete))]
+            static void Postfix_DoPostConfigureComplete(GameObject go)
             {
                 Battery battery = go.AddOrGet<Battery>();
                 battery.capacity = (float)BatteryMediumOptions.Instance.Capacity * 1000;
                 battery.joulesLostPerSecond = battery.capacity * (BatteryMediumOptions.Instance.JoulesLostPercentage / 100f) / SecondsPerCycle;
             }
 
+            //[HarmonyTranspiler]
+            //[HarmonyPatch(nameof(BatteryMediumConfig.DoPostConfigureComplete))]
             //static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             //{
             //    float capacity = (float)BatteryMediumOptions.Instance.Capacity * 1000;
@@ -58,26 +78,6 @@ namespace AdjustableBattery
             //        yield return instruction;
             //    }
             //}
-        }
-
-        [HarmonyPatch(typeof(BatteryMediumConfig))]
-        [HarmonyPatch(nameof(BatteryMediumConfig.CreateBuildingDef))]
-        class BatteryMediumConfig_CreateBuildingDef_Patch
-        {
-            static void Postfix(BuildingDef __result)
-            {
-                if (BatteryMediumOptions.Instance.MoreMass)
-                {
-                    float capacity = (float)BatteryMediumOptions.Instance.Capacity * 1000;
-                    __result.Mass = new float[1] { capacity / DefaultCapacity * BUILDINGS.CONSTRUCTION_MASS_KG.TIER4[0] };
-                }
-
-                if (!BatteryMediumOptions.Instance.SelfHeat)
-                {
-                    __result.ExhaustKilowattsWhenActive = 0f;
-                    __result.SelfHeatKilowattsWhenActive = 0f;
-                }
-            }
         }
     }
 }

@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Advanced_Liquid_Mini_Pump")]
+[assembly: AssemblyTitle("LiquidMiniPumpEnhancement")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Advanced_Liquid_Mini_Pump")]
+[assembly: AssemblyProduct("LiquidMiniPumpEnhancement")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0cb7e093-4a1e-4c90-ba25-95b9602b68fb")]
+[assembly: Guid("69d6da46-6cc3-40ef-aab1-883a4fdf7f31")]
 
 // Version information for an assembly consists of the following four values:
 //

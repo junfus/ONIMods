@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using PeterHan.PLib.Options;
 
-namespace AdvancedMiniLiquidPump
+namespace LiquidMiniPumpEnhancement
 {
     [JsonObject(MemberSerialization.OptIn)]
     [RestartRequired]

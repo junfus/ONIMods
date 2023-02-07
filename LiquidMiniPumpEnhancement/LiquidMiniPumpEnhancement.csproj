@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0CB7E093-4A1E-4C90-BA25-95B9602B68FB}</ProjectGuid>
+    <ProjectGuid>{69D6DA46-6CC3-40EF-AAB1-883A4FDF7F31}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AdvancedMiniLiquidPump</RootNamespace>
-    <AssemblyName>AdvancedMiniLiquidPump</AssemblyName>
+    <RootNamespace>LiquidMiniPumpEnhancement</RootNamespace>
+    <AssemblyName>LiquidMiniPumpEnhancement</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -62,6 +62,9 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\lib\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\lib\UnityEngine.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LiquidMiniPumpOptions.cs" />
@@ -70,17 +73,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="mod.yaml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="mod_info.yaml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="mod.yaml" />
+    <None Include="mod_info.yaml" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(ProjectDir)*.yaml" "%25userprofile%25\Documents\Klei\OxygenNotIncluded\mods\Dev\Advanced Mini Liquid Pump" /d /y /i
-xcopy "$(TargetPath)" "%25userprofile%25\Documents\Klei\OxygenNotIncluded\mods\Dev\Advanced Mini Liquid Pump" /d /y /i</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(ProjectDir)*.yaml" "%25userprofile%25\Documents\Klei\OxygenNotIncluded\mods\Dev\Liquid Mini Pump Enhancement" /d /y /i
+xcopy "$(TargetPath)" "%25userprofile%25\Documents\Klei\OxygenNotIncluded\mods\Dev\Liquid Mini Pump Enhancement" /d /y /i</PostBuildEvent>
   </PropertyGroup>
 </Project>

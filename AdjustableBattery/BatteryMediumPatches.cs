@@ -1,9 +1,10 @@
 using HarmonyLib;
 using PeterHan.PLib.Core;
 using PeterHan.PLib.Options;
-using System.Collections.Generic;
-using System.Reflection.Emit;
+//using System.Collections.Generic;
+//using System.Reflection.Emit;
 using TUNING;
+using UnityEngine;
 
 namespace AdjustableBattery
 {
@@ -11,7 +12,7 @@ namespace AdjustableBattery
     {
         public const int SecondsPerCycle = 600;
         public const float DefaultCapacity = 40000f;
-        public const float DefaultJoulesLost = 3.33333325f;
+        //public const float DefaultJoulesLost = 3.33333325f;
 
         public override void OnLoad(Harmony harmony)
         {
@@ -22,39 +23,46 @@ namespace AdjustableBattery
 
         [HarmonyPatch(typeof(BatteryMediumConfig))]
         [HarmonyPatch(nameof(BatteryMediumConfig.DoPostConfigureComplete))]
-        class BatteryMediumConfigPatch
+        class BatteryMediumConfig_DoPostConfigureComplete_Patch
         {
-            static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            static void Postfix(GameObject go)
             {
-                float capacity = (float)BatteryMediumOptions.Instance.Capacity * 1000;
-                float actualLost = capacity * (BatteryMediumOptions.Instance.JoulesLostPercentage / 100f) / SecondsPerCycle;
-
-                foreach (var instruction in instructions)
-                {
-                    if (instruction.opcode == OpCodes.Ldc_R4)
-                    {
-                        float val = (float)instruction.operand;
-                        switch (val)
-                        {
-                            case DefaultCapacity:
-                                instruction.operand = capacity;
-                                break;
-                            case DefaultJoulesLost:
-                                instruction.operand = actualLost;
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-
-                    yield return instruction;
-                }
+                Battery battery = go.AddOrGet<Battery>();
+                battery.capacity = (float)BatteryMediumOptions.Instance.Capacity * 1000;
+                battery.joulesLostPerSecond = battery.capacity * (BatteryMediumOptions.Instance.JoulesLostPercentage / 100f) / SecondsPerCycle;
             }
+
+            //static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            //{
+            //    float capacity = (float)BatteryMediumOptions.Instance.Capacity * 1000;
+            //    float actualLost = capacity * (BatteryMediumOptions.Instance.JoulesLostPercentage / 100f) / SecondsPerCycle;
+
+            //    foreach (var instruction in instructions)
+            //    {
+            //        if (instruction.opcode == OpCodes.Ldc_R4)
+            //        {
+            //            float val = (float)instruction.operand;
+            //            switch (val)
+            //            {
+            //                case DefaultCapacity:
+            //                    instruction.operand = capacity;
+            //                    break;
+            //                case DefaultJoulesLost:
+            //                    instruction.operand = actualLost;
+            //                    break;
+            //                default:
+            //                    break;
+            //            }
+            //        }
+
+            //        yield return instruction;
+            //    }
+            //}
         }
 
         [HarmonyPatch(typeof(BatteryMediumConfig))]
         [HarmonyPatch(nameof(BatteryMediumConfig.CreateBuildingDef))]
-        class BatteryMediumConfigCtorPatch
+        class BatteryMediumConfig_CreateBuildingDef_Patch
         {
             static void Postfix(BuildingDef __result)
             {

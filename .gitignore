@@ -2,6 +2,7 @@
 lib/
 obj/
 packages/
+Freezer/
 
 */bin/
 */obj/

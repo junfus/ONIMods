@@ -20,7 +20,7 @@ namespace AdvancedSolarPanel
 
         [HarmonyPatch(typeof(SolarPanelConfig))]
         [HarmonyPatch(nameof(SolarPanelConfig.CreateBuildingDef))]
-        class SolarPanelConfigPatches
+        class SolarPanelConfig_CreateBuildingDef_Patch
         {
             static void Postfix(BuildingDef __result)
             {
@@ -31,7 +31,7 @@ namespace AdvancedSolarPanel
 
         [HarmonyPatch(typeof(SolarPanel))]
         [HarmonyPatch(nameof(SolarPanel.EnergySim200ms))]
-        class SolarPanelPatches
+        class SolarPanel_EnergySim200ms_Patch
         {
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {

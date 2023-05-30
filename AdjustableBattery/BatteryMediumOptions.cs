@@ -12,8 +12,8 @@ namespace AdjustableBattery
         [JsonProperty]
         public int Capacity { get; set; }
 
-        [Option("JoulesLost (Percentage)", "Percentage of joules lost. Default is 5%")]
-        [Limit(0, 10)]
+        [Option("JoulesLost (Thousandth)", "Thousandth of joules lost. Default is 50‰")]
+        [Limit(0, 100)]
         [JsonProperty]
         public int JoulesLostPercentage { get; set; }
 
@@ -28,7 +28,7 @@ namespace AdjustableBattery
         public BatteryMediumOptions()
         {
             Capacity = 40;
-            JoulesLostPercentage = 5;
+            JoulesLostPercentage = 50;
             MoreMass = false;
             SelfHeat = true;
         }

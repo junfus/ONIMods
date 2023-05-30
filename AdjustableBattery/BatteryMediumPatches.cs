@@ -47,7 +47,7 @@ namespace AdjustableBattery
             {
                 Battery battery = go.AddOrGet<Battery>();
                 battery.capacity = (float)BatteryMediumOptions.Instance.Capacity * 1000;
-                battery.joulesLostPerSecond = battery.capacity * (BatteryMediumOptions.Instance.JoulesLostPercentage / 100f) / SecondsPerCycle;
+                battery.joulesLostPerSecond = battery.capacity * (BatteryMediumOptions.Instance.JoulesLostPercentage / 1000f) / SecondsPerCycle;
             }
 
             //[HarmonyTranspiler]

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace LiquidMiniPumpEnhancement
 {
-    public sealed class LiquidMiniPumpEnhancementLoad : KMod.UserMod2
+    public sealed class LiquidMiniPumpPatches : KMod.UserMod2
     {
         public override void OnLoad(Harmony harmony)
         {

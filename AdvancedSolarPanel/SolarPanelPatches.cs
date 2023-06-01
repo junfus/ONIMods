@@ -6,7 +6,7 @@ using System.Reflection.Emit;
 
 namespace AdvancedSolarPanel
 {
-    public sealed class AdvancedSolarPanelLoad : KMod.UserMod2
+    public sealed class SolarPanelPatches : KMod.UserMod2
     {
         public const float DefaultPower = 380f;
         public const float DefaultRate = 0.00053f;

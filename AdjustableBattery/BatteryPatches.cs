@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace AdjustableBattery
 {
-    public sealed class AdjustableBatteryLoad : KMod.UserMod2
+    public sealed class BatteryPatches : KMod.UserMod2
     {
         public const int SecondsPerCycle = 600;
         public const float DefaultCapacity = 40000f;
@@ -18,7 +18,7 @@ namespace AdjustableBattery
         {
             base.OnLoad(harmony);
             PUtil.InitLibrary();
-            new POptions().RegisterOptions(this, typeof(BatteryMediumOptions));
+            new POptions().RegisterOptions(this, typeof(BatteryOptions));
         }
 
         [HarmonyPatch(typeof(BatteryMediumConfig))]
@@ -28,13 +28,13 @@ namespace AdjustableBattery
             [HarmonyPatch(nameof(BatteryMediumConfig.CreateBuildingDef))]
             static void Postfix_CreateBuildingDef(BuildingDef __result)
             {
-                if (BatteryMediumOptions.Instance.MoreMass)
+                if (BatteryOptions.Instance.MoreMass)
                 {
-                    float capacity = (float)BatteryMediumOptions.Instance.Capacity * 1000;
+                    float capacity = (float)BatteryOptions.Instance.Capacity * 1000;
                     __result.Mass = new float[1] { capacity / DefaultCapacity * BUILDINGS.CONSTRUCTION_MASS_KG.TIER4[0] };
                 }
 
-                if (!BatteryMediumOptions.Instance.SelfHeat)
+                if (!BatteryOptions.Instance.SelfHeat)
                 {
                     __result.ExhaustKilowattsWhenActive = 0f;
                     __result.SelfHeatKilowattsWhenActive = 0f;
@@ -46,8 +46,8 @@ namespace AdjustableBattery
             static void Postfix_DoPostConfigureComplete(GameObject go)
             {
                 Battery battery = go.AddOrGet<Battery>();
-                battery.capacity = (float)BatteryMediumOptions.Instance.Capacity * 1000;
-                battery.joulesLostPerSecond = battery.capacity * (BatteryMediumOptions.Instance.JoulesLostPercentage / 1000f) / SecondsPerCycle;
+                battery.capacity = (float)BatteryOptions.Instance.Capacity * 1000;
+                battery.joulesLostPerSecond = battery.capacity * (BatteryOptions.Instance.JoulesLostPercentage / 1000f) / SecondsPerCycle;
             }
 
             //[HarmonyTranspiler]

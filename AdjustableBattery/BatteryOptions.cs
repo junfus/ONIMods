@@ -5,7 +5,7 @@ namespace AdjustableBattery
 {
     [JsonObject(MemberSerialization.OptIn)]
     [RestartRequired]
-    public sealed class BatteryMediumOptions : SingletonOptions<BatteryMediumOptions>
+    public sealed class BatteryOptions : SingletonOptions<BatteryOptions>
     {
         [Option("Capacity (Kilojoules)", "Battery capacity. Default is 40kj.")]
         [Limit(40, 400)]
@@ -25,7 +25,7 @@ namespace AdjustableBattery
         [JsonProperty]
         public bool SelfHeat { get; set; }
 
-        public BatteryMediumOptions()
+        public BatteryOptions()
         {
             Capacity = 40;
             JoulesLostPercentage = 50;

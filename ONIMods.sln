@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freezer", "Freezer\Freezer.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquidMiniPumpEnhancement", "LiquidMiniPumpEnhancement\LiquidMiniPumpEnhancement.csproj", "{69D6DA46-6CC3-40EF-AAB1-883A4FDF7F31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotatableLight", "RotatableCeilingLight\RotatableLight.csproj", "{E7DD737D-BA4E-47D8-A4EA-B04F6FE6F546}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotatableLight", "RotatableLight\RotatableLight.csproj", "{E7DD737D-BA4E-47D8-A4EA-B04F6FE6F546}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

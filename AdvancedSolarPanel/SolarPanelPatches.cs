@@ -14,7 +14,7 @@ namespace AdvancedSolarPanel
         public override void OnLoad(Harmony harmony)
         {
             base.OnLoad(harmony);
-            PUtil.InitLibrary();
+            PUtil.InitLibrary(false);
             new POptions().RegisterOptions(this, typeof(SolarPanelOptions));
         }
 

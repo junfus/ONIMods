@@ -5,17 +5,15 @@ namespace RotatableLight
 {
     internal class RotatableLightConfig : IBuildingConfig
     {
-        public const string ID = "Rotatable Light";
-        public const string DISPLAYNAME = "Rotatable Light";
-
-        public const string DESCRIPTION = "Rotatable ceiling light.";
-        public const string EFFECT = "Brightly illuminates a large area.";
+        public const string ID = "RotatableLight";
 
         public const int LUX = 1800;
         public const float RANGE = 8f;
 
         public override BuildingDef CreateBuildingDef()
         {
+            LocString.CreateLocStringKeys(typeof(RotatableLightStrings.BUILDINGS));
+
             var width = 1;
             var height = 1;
             var hitpoints = 10;
@@ -26,16 +24,16 @@ namespace RotatableLight
             var build_location_rule = BuildLocationRule.OnCeiling;
             var none = NOISE_POLLUTION.NONE;
             var buildingDef = BuildingTemplates.CreateBuildingDef(
-                ID, 
-                width, 
+                ID,
+                width,
                 height,
-                "ceilinglight_kanim", 
+                "ceilinglight_kanim",
                 hitpoints,
-                construction_time, 
-                tieR1, 
-                allMetals, 
-                melting_point, 
-                build_location_rule, 
+                construction_time,
+                tieR1,
+                allMetals,
+                melting_point,
+                build_location_rule,
                 BUILDINGS.DECOR.PENALTY.TIER5,
                 none);
             buildingDef.RequiresPowerInput = true;

@@ -75,12 +75,14 @@
     <Compile Include="LightDefs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RotatableLightConfig.cs" />
+    <Compile Include="RotatableLightStrings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="mod.yaml" />
     <None Include="mod_info.yaml" />
     <None Include="packages.config" />
+    <None Include="translations\zh.po" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -88,6 +90,7 @@
       xcopy "$(ProjectDir)*.yaml" "%25userprofile%25\Documents\Klei\OxygenNotIncluded\mods\Dev\Rotatable Light" /d /y /i
       xcopy "$(TargetPath)" "%25userprofile%25\Documents\Klei\OxygenNotIncluded\mods\Dev\Rotatable Light" /d /y /i
       xcopy "$(ProjectDir)\..\packages\PLib.4.13.0\lib\net471\PLib.dll" "%25userprofile%25\Documents\Klei\OxygenNotIncluded\mods\Dev\Rotatable Light" /d /y /i
+      xcopy "$(ProjectDir)\translations\*.po" "%25userprofile%25\Documents\Klei\OxygenNotIncluded\mods\Dev\Rotatable Light\translations" /d /y /i
     </PostBuildEvent>
   </PropertyGroup>
 </Project>

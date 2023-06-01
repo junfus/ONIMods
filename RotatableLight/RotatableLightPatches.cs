@@ -1,8 +1,8 @@
 ﻿using HarmonyLib;
 using PeterHan.PLib.Core;
+using PeterHan.PLib.Database;
 using PeterHan.PLib.Lighting;
 using PeterHan.PLib.PatchManager;
-using STRINGS;
 
 namespace RotatableLight
 {
@@ -14,7 +14,7 @@ namespace RotatableLight
         {
             base.OnLoad(harmony);
             PUtil.InitLibrary(false);
-
+            new PLocalization().Register();
             new PPatchManager(harmony).RegisterPatchClass(typeof(RotatableLightPatches));
             PLightManager plightManager = new PLightManager();
             RotatableLightPatches.Semicircle = plightManager.Register("LightShape.Semicircle", new PLightManager.CastLightDelegate(LightDefs.Semicircle));
@@ -27,10 +27,6 @@ namespace RotatableLight
             [HarmonyPatch(nameof(GeneratedBuildings.LoadGeneratedBuildings))]
             static void Prefix_LoadGeneratedBuildings()
             {
-                Strings.Add($"STRINGS.BUILDINGS.PREFABS.{RotatableLightConfig.ID.ToUpperInvariant()}.NAME", UI.FormatAsLink(RotatableLightConfig.DISPLAYNAME, RotatableLightConfig.ID));
-                Strings.Add($"STRINGS.BUILDINGS.PREFABS.{RotatableLightConfig.ID.ToUpperInvariant()}.DESC", RotatableLightConfig.DESCRIPTION);
-                Strings.Add($"STRINGS.BUILDINGS.PREFABS.{RotatableLightConfig.ID.ToUpperInvariant()}.EFFECT", RotatableLightConfig.EFFECT);
-
                 ModUtil.AddBuildingToPlanScreen("Furniture", RotatableLightConfig.ID, "LightSource", CeilingLightConfig.ID);
             }
         }

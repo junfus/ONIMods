@@ -2,7 +2,6 @@
 using PeterHan.PLib.Core;
 using PeterHan.PLib.Database;
 using PeterHan.PLib.Lighting;
-using PeterHan.PLib.PatchManager;
 
 namespace RotatableLight
 {
@@ -15,9 +14,7 @@ namespace RotatableLight
             base.OnLoad(harmony);
             PUtil.InitLibrary(false);
             new PLocalization().Register();
-            new PPatchManager(harmony).RegisterPatchClass(typeof(RotatableLightPatches));
-            PLightManager plightManager = new PLightManager();
-            RotatableLightPatches.Semicircle = plightManager.Register("LightShape.Semicircle", new PLightManager.CastLightDelegate(LightDefs.Semicircle));
+            Semicircle = new PLightManager().Register("LightShape.Semicircle", new PLightManager.CastLightDelegate(CastLightImpl.Semicircle));
         }
 
         [HarmonyPatch(typeof(GeneratedBuildings))]

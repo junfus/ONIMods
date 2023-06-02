@@ -2,7 +2,7 @@
 
 namespace RotatableLight
 {
-    public static class LightDefs
+    public static class CastLightImpl
     {
         public static void Semicircle(LightingArgs arg)
         {

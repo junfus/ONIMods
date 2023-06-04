@@ -50,7 +50,7 @@ namespace RotatableLight
             LightShapePreview lightShapePreview = go.AddComponent<LightShapePreview>();
             lightShapePreview.lux = LUX;
             lightShapePreview.radius = RANGE;
-            lightShapePreview.shape = RotatableLightPatches.Semicircle.KleiLightShape;
+            lightShapePreview.shape = RotatableLightPatches.CustomShape.KleiLightShape;
         }
 
         public override void ConfigureBuildingTemplate(GameObject go, Tag prefab_tag) => go.GetComponent<KPrefabID>().AddTag(RoomConstraints.ConstraintTags.LightSource);
@@ -65,7 +65,7 @@ namespace RotatableLight
             light2D.Angle = 2.6f;
             light2D.Direction = LIGHT2D.CEILINGLIGHT_DIRECTION;
             light2D.Offset = LIGHT2D.CEILINGLIGHT_OFFSET;
-            light2D.shape = RotatableLightPatches.Semicircle.KleiLightShape;
+            light2D.shape = RotatableLightPatches.CustomShape.KleiLightShape;
             light2D.drawOverlay = true;
             light2D.Lux = LUX;
             go.AddOrGetDef<LightController.Def>();

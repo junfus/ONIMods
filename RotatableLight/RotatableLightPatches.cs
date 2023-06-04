@@ -2,19 +2,21 @@
 using PeterHan.PLib.Core;
 using PeterHan.PLib.Database;
 using PeterHan.PLib.Lighting;
+using PeterHan.PLib.Options;
 
 namespace RotatableLight
 {
     public sealed class RotatableLightPatches : KMod.UserMod2
     {
-        public static ILightShape Semicircle;
+        public static ILightShape CustomShape;
 
         public override void OnLoad(Harmony harmony)
         {
             base.OnLoad(harmony);
             PUtil.InitLibrary(false);
             new PLocalization().Register();
-            Semicircle = new PLightManager().Register("LightShape.Semicircle", new PLightManager.CastLightDelegate(CastLightImpl.Semicircle));
+            new POptions().RegisterOptions(this, typeof(RotatableLightOptions));
+            CustomShape = new PLightManager().Register("LightShape.CustomShape", new PLightManager.CastLightDelegate(CastLightImpl.CustomShape));
         }
 
         [HarmonyPatch(typeof(GeneratedBuildings))]

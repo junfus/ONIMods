@@ -12,7 +12,7 @@ namespace RotatableLight
 
         public override BuildingDef CreateBuildingDef()
         {
-            LocString.CreateLocStringKeys(typeof(RotatableLightStrings.BUILDINGS));
+            LocString.CreateLocStringKeys(typeof(STRINGS.BUILDINGS));
 
             var width = 1;
             var height = 1;

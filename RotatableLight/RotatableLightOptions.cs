@@ -7,24 +7,32 @@ namespace RotatableLight
     [RestartRequired]
     public sealed class RotatableLightOptions : SingletonOptions<RotatableLightOptions>
     {
-        [Option("SmoothLight", "Whether or not using smooth light.")]
+        [Option]
+        [JsonProperty]
+        public Shape Shape { get; set; }
+
+        [Option]
         [JsonProperty]
         public bool SmoothLight { get; set; }
 
-        [Option("Falloff", "Falloff parameter which affect the lux.")]
+        [Option]
         [Limit(0.1f, 1f)]
         [JsonProperty]
         public float Falloff { get; set; }
 
-        [Option("LightShape", "The shape of the light.")]
+        [Option]
         [JsonProperty]
-        public Shape Shape { get; set; }
+        public bool OverrideGameLight { get; set; }
 
         public RotatableLightOptions()
         {
+            // Localization
+            LocString.CreateLocStringKeys(typeof(STRINGS.ROTATABLELIGHT));
+
+            Shape = Shape.Cone;
             SmoothLight = false;
             Falloff = 0.5f;
-            Shape = Shape.Cone;
+            OverrideGameLight = false;
         }
     }
 

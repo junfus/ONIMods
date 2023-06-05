@@ -13,36 +13,90 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Language: zh_CN\n"
 
-#. RotatableLight.RotatableLightStrings.BUILDINGS.PREFABS.ROTATABLELIGHT.NAME
+#. RotatableLight.STRINGS.BUILDINGS.PREFABS.ROTATABLELIGHT.NAME
 msgctxt ""
-"RotatableLight.RotatableLightStrings.BUILDINGS.PREFABS.ROTATABLELIGHT.NAME"
+"RotatableLight.STRINGS.BUILDINGS.PREFABS.ROTATABLELIGHT.NAME"
 msgid "<link=\"ROTATABLELIGHT\">Rotatable Light</link>"
 msgstr "<link=\"ROTATABLELIGHT\">旋转灯</link>"
 
-#. RotatableLight.RotatableLightStrings.BUILDINGS.PREFABS.ROTATABLELIGHT.DESC
+#. RotatableLight.STRINGS.BUILDINGS.PREFABS.ROTATABLELIGHT.DESC
 msgctxt ""
-"RotatableLight.RotatableLightStrings.BUILDINGS.PREFABS.ROTATABLELIGHT.DESC"
+"RotatableLight.STRINGS.BUILDINGS.PREFABS.ROTATABLELIGHT.DESC"
 msgid ""
-"Light reduces Duplicant stress and is required to grow certain plants.\n"
-"\n"
-"The light shape is semicircle and it is rotatable."
+"Light reduces Duplicant stress and is required to grow certain plants."
 msgstr ""
-"光照可以减少复制人的压力，并且是某些植物生长的必备条件。\n"
-"\n"
-"它是半圆形的光且是可旋转的。"
+"光照可以减少复制人的压力，并且是某些植物生长的必备条件。"
 
-#. RotatableLight.RotatableLightStrings.BUILDINGS.PREFABS.ROTATABLELIGHT.EFFECT
+#. RotatableLight.STRINGS.BUILDINGS.PREFABS.ROTATABLELIGHT.EFFECT
 msgctxt ""
-"RotatableLight.RotatableLightStrings.BUILDINGS.PREFABS.ROTATABLELIGHT.EFFECT"
+"RotatableLight.STRINGS.BUILDINGS.PREFABS.ROTATABLELIGHT.EFFECT"
 msgid ""
 "Provides <link=\"LIGHT\">Light</link> when <link=\"POWER\">Powered</link>.\n"
 "\n"
 "Increases Duplicant workspeed within light radius.\n"
 "\n"
-"The light shape is semicircle and it is rotatable."
+"The light is rotatable, and the light shape is configurable in mod setting."
+"\n"
 msgstr ""
 "<link=\"POWER\">通电</link>时提供<link=\"LIGHT\">光照</link>。\n"
 "\n"
 "在光线范围内复制人工作速度加快。\n"
 "\n"
-"它是半圆形的光且是可旋转的。"
+"它是可旋转的，且光线形状可以在mod设置中更改。"
+"\n"
+
+#. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.ROTATABLELIGHTOPTIONS.CATEGORY
+msgctxt ""
+"RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.ROTATABLELIGHTOPTIONS.CATEGORY"
+msgid ""
+"Rotatable Light Options"
+msgstr ""
+"旋转灯设置"
+
+#. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.SHAPE.NAME
+msgctxt ""
+"RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.SHAPE.NAME"
+msgid ""
+"Light Shape"
+msgstr ""
+"光线形状"
+
+#. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.LIGHTOPTIONS.CATEGORY
+msgctxt ""
+"RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.LIGHTOPTIONS.CATEGORY"
+msgid ""
+"Light Options"
+msgstr ""
+"光线设置"
+
+#. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.SMOOTHLIGHT.NAME
+msgctxt ""
+"RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.SMOOTHLIGHT.NAME"
+msgid ""
+"Smooth Light"
+msgstr ""
+"平滑的光线"
+
+#. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.FALLOFF.NAME
+msgctxt ""
+"RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.FALLOFF.NAME"
+msgid ""
+"Falloff"
+msgstr ""
+"光线衰减系数"
+
+#. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.OVERRIDEGAMELIGHT.NAME
+msgctxt ""
+"RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.OVERRIDEGAMELIGHT.NAME"
+msgid ""
+"Override Game Light"
+msgstr ""
+"覆盖游戏光线"
+
+#. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.OVERRIDEGAMELIGHT.TOOLTIP
+msgctxt ""
+"RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.OVERRIDEGAMELIGHT.TOOLTIP"
+msgid ""
+"Override <b>Light Options</b> to default game lights."
+msgstr ""
+"使用 <b>光线设置</b> 覆盖游戏光线。"

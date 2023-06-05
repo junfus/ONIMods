@@ -75,7 +75,7 @@
     <Compile Include="RotatableLightPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RotatableLightConfig.cs" />
-    <Compile Include="RotatableLightStrings.cs" />
+    <Compile Include="STRINGS.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

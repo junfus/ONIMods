@@ -3,6 +3,8 @@ using PeterHan.PLib.Core;
 using PeterHan.PLib.Database;
 using PeterHan.PLib.Lighting;
 using PeterHan.PLib.Options;
+using UnityEngine;
+using static LightGridManager;
 
 namespace RotatableLight
 {
@@ -38,6 +40,35 @@ namespace RotatableLight
             static void Postfix_Initialize()
             {
                 Db.Get().Techs.Get("FineArt").unlockedItemIDs.Add(RotatableLightConfig.ID);
+
+                // Do nothing but force POptions instance to load
+                // to get the expected config dialog in the mod setting.
+                _ = RotatableLightOptions.Instance.SmoothLight;
+            }
+        }
+
+        [HarmonyPatch(typeof(LightGridEmitter))]
+        class Patch_LightGridEmitter
+        {
+            [HarmonyPrefix]
+            [HarmonyPatch("ComputeLux")]
+            static bool Prefix_ComputeLux(int cell, LightGridEmitter.State ___state, ref int __result)
+            {
+                if (!RotatableLightOptions.Instance.OverrideGameLight)
+                {
+                    return true;
+                }
+
+                if (RotatableLightOptions.Instance.SmoothLight)
+                {
+                    __result = Mathf.RoundToInt(___state.intensity * PLightManager.GetSmoothFalloff(RotatableLightOptions.Instance.Falloff, cell, ___state.origin));
+                }
+                else
+                {
+                    __result = Mathf.RoundToInt(___state.intensity * PLightManager.GetDefaultFalloff(RotatableLightOptions.Instance.Falloff, cell, ___state.origin));
+                }
+
+                return false;
             }
         }
     }

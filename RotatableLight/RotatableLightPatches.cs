@@ -53,7 +53,7 @@ namespace RotatableLight
             [HarmonyPatch("ComputeLux")]
             static bool Prefix_ComputeLux(int cell, LightGridEmitter.State ___state, ref int __result)
             {
-                if (!RotatableLightOptions.Instance.OverrideGameLight)
+                if (!RotatableLightOptions.Instance.OverrideGameLightSetting)
                 {
                     return true;
                 }

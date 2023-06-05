@@ -54,10 +54,10 @@
                     public static LocString TOOLTIP = "";
                 }
 
-                public static class OVERRIDEGAMELIGHT
+                public static class OVERRIDEGAMELIGHTSETTING
                 {
-                    public static LocString NAME = "Override Game Light";
-                    public static LocString TOOLTIP = "Override Light Options to default game lights.";
+                    public static LocString NAME = "Override Game Light Setting";
+                    public static LocString TOOLTIP = "Override <b>Light Options</b> to default game light setting.";
                 }
             }
         }

@@ -85,18 +85,18 @@ msgid ""
 msgstr ""
 "光线衰减系数"
 
-#. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.OVERRIDEGAMELIGHT.NAME
+#. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.OVERRIDEGAMELIGHTSETTING.NAME
 msgctxt ""
-"RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.OVERRIDEGAMELIGHT.NAME"
+"RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.OVERRIDEGAMELIGHTSETTING.NAME"
 msgid ""
-"Override Game Light"
+"Override Game Light Setting"
 msgstr ""
-"覆盖游戏光线"
+"覆盖游戏光线设置"
 
-#. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.OVERRIDEGAMELIGHT.TOOLTIP
+#. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.OVERRIDEGAMELIGHTSETTING.TOOLTIP
 msgctxt ""
-"RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.OVERRIDEGAMELIGHT.TOOLTIP"
+"RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.OVERRIDEGAMELIGHTSETTING.TOOLTIP"
 msgid ""
-"Override <b>Light Options</b> to default game lights."
+"Override <b>Light Options</b> to default game light setting."
 msgstr ""
-"使用 <b>光线设置</b> 覆盖游戏光线。"
+"使用 <b>光线设置</b> 覆盖游戏光线设置。"

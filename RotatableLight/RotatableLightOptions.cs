@@ -22,14 +22,14 @@ namespace RotatableLight
 
         [Option]
         [JsonProperty]
-        public bool OverrideGameLight { get; set; }
+        public bool OverrideGameLightSetting { get; set; }
 
         public RotatableLightOptions()
         {
             Shape = Shape.Cone;
             SmoothLight = false;
             Falloff = 0.5f;
-            OverrideGameLight = false;
+            OverrideGameLightSetting = false;
         }
     }
 

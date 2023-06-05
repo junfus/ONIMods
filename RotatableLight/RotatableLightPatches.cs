@@ -41,9 +41,8 @@ namespace RotatableLight
             {
                 Db.Get().Techs.Get("FineArt").unlockedItemIDs.Add(RotatableLightConfig.ID);
 
-                // Do nothing but force POptions instance to load
-                // to get the expected config dialog in the mod setting.
-                _ = RotatableLightOptions.Instance.SmoothLight;
+                // Localization
+                LocString.CreateLocStringKeys(typeof(STRINGS.ROTATABLELIGHT));
             }
         }
 

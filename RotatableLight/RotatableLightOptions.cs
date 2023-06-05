@@ -26,9 +26,6 @@ namespace RotatableLight
 
         public RotatableLightOptions()
         {
-            // Localization
-            LocString.CreateLocStringKeys(typeof(STRINGS.ROTATABLELIGHT));
-
             Shape = Shape.Cone;
             SmoothLight = false;
             Falloff = 0.5f;

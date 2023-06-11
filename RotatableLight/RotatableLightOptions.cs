@@ -35,8 +35,13 @@ namespace RotatableLight
 
     public enum Shape
     {
+        [Option]
         Cone,
+
+        [Option]
         Semicircle,
+
+        [Option]
         Circle,
     }
 }

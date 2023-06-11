@@ -54,10 +54,28 @@
                     public static LocString TOOLTIP = "";
                 }
 
-                public static class OVERRIDEGAMELIGHTSETTING
+                public class OVERRIDEGAMELIGHTSETTING
                 {
                     public static LocString NAME = "Override Game Light Setting";
                     public static LocString TOOLTIP = "Override <b>Light Options</b> to default game light setting.";
+                }
+
+                public class CONE
+                {
+                    public static LocString NAME = "Cone";
+                    public static LocString TOOLTIP = "";
+                }
+
+                public class CIRCLE
+                {
+                    public static LocString NAME = "Circle";
+                    public static LocString TOOLTIP = "";
+                }
+
+                public class SEMICIRCLE
+                {
+                    public static LocString NAME = "Semicircle";
+                    public static LocString TOOLTIP = "";
                 }
             }
         }

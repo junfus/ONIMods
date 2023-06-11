@@ -100,3 +100,27 @@ msgid ""
 "Override <b>Light Options</b> to default game light setting."
 msgstr ""
 "使用 <b>光线设置</b> 覆盖游戏光线设置。"
+
+#. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.CONE.NAME
+msgctxt ""
+"RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.CONE.NAME"
+msgid ""
+"Cone"
+msgstr ""
+"锥 形"
+
+#. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.CIRCLE.NAME
+msgctxt ""
+"RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.CIRCLE.NAME"
+msgid ""
+"Circle"
+msgstr ""
+"圆 形"
+
+#. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.SEMICIRCLE.NAME
+msgctxt ""
+"RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.SEMICIRCLE.NAME"
+msgid ""
+"Semicircle"
+msgstr ""
+"半 圆 形"

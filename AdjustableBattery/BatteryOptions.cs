@@ -7,28 +7,28 @@ namespace AdjustableBattery
     [RestartRequired]
     public sealed class BatteryOptions : SingletonOptions<BatteryOptions>
     {
-        [Option("Capacity (Kilojoules)", "Battery capacity. Default is 40kj.")]
-        [Limit(40, 400)]
+        [Option]
+        [Limit(10, 400)]
         [JsonProperty]
         public int Capacity { get; set; }
 
-        [Option("JoulesLost (Thousandth)", "Thousandth of joules lost. Default is 50‰")]
-        [Limit(0, 100)]
+        [Option]
+        [Limit(0, 20)]
         [JsonProperty]
-        public int JoulesLostPercentage { get; set; }
+        public float JoulesLostPercentage { get; set; }
 
-        [Option("MoreMass", "Default is false")]
+        [Option]
         [JsonProperty]
         public bool MoreMass { get; set; }
 
-        [Option("SelfHeat", "Default is true")]
+        [Option]
         [JsonProperty]
         public bool SelfHeat { get; set; }
 
         public BatteryOptions()
         {
-            Capacity = 40;
-            JoulesLostPercentage = 50;
+            Capacity = 10;
+            JoulesLostPercentage = 10f;
             MoreMass = false;
             SelfHeat = true;
         }

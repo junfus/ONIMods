@@ -1,0 +1,46 @@
+﻿msgid ""
+msgstr ""
+"Application: Oxygen Not IncludedPOT Version: 2.0\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"Last-Translator: junfus\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: zh_CN\n"
+
+#. AdjustableBattery.STRINGS.ADJUSTABLEBATTERY.OPTIONS.CAPACITY.NAME
+msgctxt ""
+"AdjustableBattery.STRINGS.ADJUSTABLEBATTERY.OPTIONS.CAPACITY.NAME"
+msgid ""
+"Capacity (Kilojoules)"
+msgstr ""
+"容量（千焦）"
+
+#. AdjustableBattery.STRINGS.ADJUSTABLEBATTERY.OPTIONS.JOULESLOSTPERCENTAGE.NAME
+msgctxt ""
+"AdjustableBattery.STRINGS.ADJUSTABLEBATTERY.OPTIONS.JOULESLOSTPERCENTAGE.NAME"
+msgid ""
+"Joules Lost (percentage)"
+msgstr ""
+"能量流失（百分之）"
+
+#. AdjustableBattery.STRINGS.ADJUSTABLEBATTERY.OPTIONS.MOREMASS.NAME
+msgctxt ""
+"AdjustableBattery.STRINGS.ADJUSTABLEBATTERY.OPTIONS.MOREMASS.NAME"
+msgid ""
+"More Mass (related to Capacity)"
+msgstr ""
+"建造时需要更多的材料（与容量相关）"
+
+#. AdjustableBattery.STRINGS.ADJUSTABLEBATTERY.OPTIONS.SELFHEAT.NAME
+msgctxt ""
+"AdjustableBattery.STRINGS.ADJUSTABLEBATTERY.OPTIONS.SELFHEAT.NAME"
+msgid ""
+"Self Heat"
+msgstr ""
+"自发热"

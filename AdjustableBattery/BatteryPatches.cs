@@ -1,8 +1,7 @@
 using HarmonyLib;
 using PeterHan.PLib.Core;
+using PeterHan.PLib.Database;
 using PeterHan.PLib.Options;
-//using System.Collections.Generic;
-//using System.Reflection.Emit;
 using TUNING;
 using UnityEngine;
 
@@ -11,27 +10,39 @@ namespace AdjustableBattery
     public sealed class BatteryPatches : KMod.UserMod2
     {
         public const int SecondsPerCycle = 600;
-        public const float DefaultCapacity = 40000f;
-        //public const float DefaultJoulesLost = 3.33333325f;
+        public const float DefaultCapacity = 10000f;
 
         public override void OnLoad(Harmony harmony)
         {
             base.OnLoad(harmony);
             PUtil.InitLibrary(false);
+            new PLocalization().Register();
             new POptions().RegisterOptions(this, typeof(BatteryOptions));
         }
 
-        [HarmonyPatch(typeof(BatteryMediumConfig))]
-        class Patch_BatteryMediumConfig
+        [HarmonyPatch(typeof(Db))]
+        class Patch_Db
         {
             [HarmonyPostfix]
-            [HarmonyPatch(nameof(BatteryMediumConfig.CreateBuildingDef))]
+            [HarmonyPatch(nameof(Db.Initialize))]
+            static void Postfix_Initialize()
+            {
+                // Localization
+                LocString.CreateLocStringKeys(typeof(STRINGS.ADJUSTABLEBATTERY));
+            }
+        }
+
+        [HarmonyPatch(typeof(BatteryConfig))]
+        class Patch_BatteryConfig
+        {
+            [HarmonyPostfix]
+            [HarmonyPatch(nameof(BatteryConfig.CreateBuildingDef))]
             static void Postfix_CreateBuildingDef(BuildingDef __result)
             {
                 if (BatteryOptions.Instance.MoreMass)
                 {
-                    float capacity = (float)BatteryOptions.Instance.Capacity * 1000;
-                    __result.Mass = new float[1] { capacity / DefaultCapacity * BUILDINGS.CONSTRUCTION_MASS_KG.TIER4[0] };
+                    float capacity = BatteryOptions.Instance.Capacity * 1000f;
+                    __result.Mass = new float[1] { capacity / DefaultCapacity * BUILDINGS.CONSTRUCTION_MASS_KG.TIER3[0] };
                 }
 
                 if (!BatteryOptions.Instance.SelfHeat)
@@ -42,42 +53,13 @@ namespace AdjustableBattery
             }
 
             [HarmonyPostfix]
-            [HarmonyPatch(nameof(BatteryMediumConfig.DoPostConfigureComplete))]
+            [HarmonyPatch(nameof(BatteryConfig.DoPostConfigureComplete))]
             static void Postfix_DoPostConfigureComplete(GameObject go)
             {
                 Battery battery = go.AddOrGet<Battery>();
-                battery.capacity = (float)BatteryOptions.Instance.Capacity * 1000;
-                battery.joulesLostPerSecond = battery.capacity * (BatteryOptions.Instance.JoulesLostPercentage / 1000f) / SecondsPerCycle;
+                battery.capacity = BatteryOptions.Instance.Capacity * 1000f;
+                battery.joulesLostPerSecond = battery.capacity * (BatteryOptions.Instance.JoulesLostPercentage / 100) / SecondsPerCycle;
             }
-
-            //[HarmonyTranspiler]
-            //[HarmonyPatch(nameof(BatteryMediumConfig.DoPostConfigureComplete))]
-            //static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-            //{
-            //    float capacity = (float)BatteryMediumOptions.Instance.Capacity * 1000;
-            //    float actualLost = capacity * (BatteryMediumOptions.Instance.JoulesLostPercentage / 100f) / SecondsPerCycle;
-
-            //    foreach (var instruction in instructions)
-            //    {
-            //        if (instruction.opcode == OpCodes.Ldc_R4)
-            //        {
-            //            float val = (float)instruction.operand;
-            //            switch (val)
-            //            {
-            //                case DefaultCapacity:
-            //                    instruction.operand = capacity;
-            //                    break;
-            //                case DefaultJoulesLost:
-            //                    instruction.operand = actualLost;
-            //                    break;
-            //                default:
-            //                    break;
-            //            }
-            //        }
-
-            //        yield return instruction;
-            //    }
-            //}
         }
     }
 }

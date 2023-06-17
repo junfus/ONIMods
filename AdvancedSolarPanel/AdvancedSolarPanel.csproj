@@ -73,11 +73,13 @@
     <Compile Include="SolarPanelPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolarPanelOptions.cs" />
+    <Compile Include="STRINGS.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="mod.yaml" />
     <None Include="packages.config" />
+    <None Include="translations\zh.po" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="ILRepack" AfterTargets="Build">
@@ -90,5 +92,9 @@
       <ModInfo>supportedContent: ALL%0aminimumSupportedBuild: $(MinSupportedGameBuild)%0aversion: $(Version)%0aAPIVersion: 2</ModInfo>
     </PropertyGroup>
     <WriteLinesToFile File="$(DevModsPath)\mod_info.yaml" Lines="$(ModInfo)" Overwrite="true" />
+    <ItemGroup>
+      <TranslationFiles Include="$(ProjectDir)\translations\*.po" />
+    </ItemGroup>
+    <Copy SourceFiles="@(TranslationFiles)" DestinationFolder="$(DevModsPath)\translations" />
   </Target>
 </Project>

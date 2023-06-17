@@ -107,7 +107,7 @@ msgctxt ""
 msgid ""
 "Cone"
 msgstr ""
-"锥 形"
+"圆 锥 形"
 
 #. RotatableLight.STRINGS.ROTATABLELIGHT.OPTIONS.CIRCLE.NAME
 msgctxt ""

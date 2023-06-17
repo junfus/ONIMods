@@ -1,5 +1,6 @@
 using HarmonyLib;
 using PeterHan.PLib.Core;
+using PeterHan.PLib.Database;
 using PeterHan.PLib.Options;
 using System.Collections.Generic;
 using System.Reflection.Emit;
@@ -15,7 +16,20 @@ namespace AdvancedSolarPanel
         {
             base.OnLoad(harmony);
             PUtil.InitLibrary(false);
+            new PLocalization().Register();
             new POptions().RegisterOptions(this, typeof(SolarPanelOptions));
+        }
+
+        [HarmonyPatch(typeof(Db))]
+        class Patch_Db
+        {
+            [HarmonyPostfix]
+            [HarmonyPatch(nameof(Db.Initialize))]
+            static void Postfix_Initialize()
+            {
+                // Localization
+                LocString.CreateLocStringKeys(typeof(STRINGS.ADVANCEDSOLARPANEL));
+            }
         }
 
         [HarmonyPatch(typeof(SolarPanelConfig))]

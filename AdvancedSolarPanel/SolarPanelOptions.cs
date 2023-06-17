@@ -7,12 +7,12 @@ namespace AdvancedSolarPanel
     [RestartRequired]
     public sealed class SolarPanelOptions : SingletonOptions<SolarPanelOptions>
     {
-        [Option("Wattage", "Maximum wattage that Solar Panel can provide.")]
+        [Option]
         [Limit(380, 4000)]
         [JsonProperty]
         public int Watts { get; set; }
 
-        [Option("Efficiency", "Default is 1.")]
+        [Option]
         [Limit(1, 10)]
         [JsonProperty]
         public int Efficiency { get; set; }

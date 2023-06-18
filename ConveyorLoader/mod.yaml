@@ -1,0 +1,3 @@
+title: "Conveyor Loader" 
+description: "Add a logic output to Conveyor Loader. Sends a green light when empty, otherwise, sends a red light."
+staticID: "J.ConveyorLoader" 

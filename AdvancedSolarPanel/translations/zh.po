@@ -13,13 +13,21 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Language: zh_CN\n"
 
-#. AdvancedSolarPanel.STRINGS.ADVANCEDSOLARPANEL.OPTIONS.WATTS.NAME
+#. AdvancedSolarPanel.STRINGS.ADVANCEDSOLARPANEL.OPTIONS.SOLARPANEL.CATEGORY
 msgctxt ""
-"AdvancedSolarPanel.STRINGS.ADVANCEDSOLARPANEL.OPTIONS.WATTS.NAME"
+"AdvancedSolarPanel.STRINGS.ADVANCEDSOLARPANEL.OPTIONS.SOLARPANEL.CATEGORY"
 msgid ""
-"Capacity (Watts)"
+"SOLAR PANEL"
 msgstr ""
-"容量（瓦特）"
+"太阳能板"
+
+#. AdvancedSolarPanel.STRINGS.ADVANCEDSOLARPANEL.OPTIONS.POWER.NAME
+msgctxt ""
+"AdvancedSolarPanel.STRINGS.ADVANCEDSOLARPANEL.OPTIONS.POWER.NAME"
+msgid ""
+"Power (Watts)"
+msgstr ""
+"电力（瓦特）"
 
 #. AdvancedSolarPanel.STRINGS.ADVANCEDSOLARPANEL.OPTIONS.EFFICIENCY.NAME
 msgctxt ""

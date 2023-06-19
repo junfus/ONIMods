@@ -13,6 +13,14 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Language: zh_CN\n"
 
+#. AdjustableBattery.STRINGS.ADJUSTABLEBATTERY.OPTIONS.BATTERY.CATEGORY
+msgctxt ""
+"AdjustableBattery.STRINGS.ADJUSTABLEBATTERY.OPTIONS.BATTERY.CATEGORY"
+msgid ""
+"BATTERY"
+msgstr ""
+"电池"
+
 #. AdjustableBattery.STRINGS.ADJUSTABLEBATTERY.OPTIONS.CAPACITY.NAME
 msgctxt ""
 "AdjustableBattery.STRINGS.ADJUSTABLEBATTERY.OPTIONS.CAPACITY.NAME"

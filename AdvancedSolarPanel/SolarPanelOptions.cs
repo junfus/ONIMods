@@ -10,7 +10,7 @@ namespace AdvancedSolarPanel
         [Option]
         [Limit(380, 4000)]
         [JsonProperty]
-        public int Watts { get; set; }
+        public int Power { get; set; }
 
         [Option]
         [Limit(1, 10)]
@@ -19,7 +19,7 @@ namespace AdvancedSolarPanel
 
         public SolarPanelOptions()
         {
-            Watts = 380;
+            Power = 380;
             Efficiency = 1;
         }
     }

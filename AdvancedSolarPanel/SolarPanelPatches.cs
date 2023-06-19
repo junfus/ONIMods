@@ -9,8 +9,8 @@ namespace AdvancedSolarPanel
 {
     public sealed class SolarPanelPatches : KMod.UserMod2
     {
-        public const float DefaultPower = 380f;
-        public const float DefaultRate = 0.00053f;
+        public const float DEFAULTPOWER = 380f;
+        public const float DEFAULTRATE = 0.00053f;
 
         public override void OnLoad(Harmony harmony)
         {
@@ -39,8 +39,8 @@ namespace AdvancedSolarPanel
             [HarmonyPatch(nameof(SolarPanelConfig.CreateBuildingDef))]
             static void Postfix_CreateBuildingDef(BuildingDef __result)
             {
-                __result.GeneratorWattageRating = (float)SolarPanelOptions.Instance.Watts;
-                __result.GeneratorBaseCapacity = (float)SolarPanelOptions.Instance.Watts;
+                __result.GeneratorWattageRating = SolarPanelOptions.Instance.Power;
+                __result.GeneratorBaseCapacity = SolarPanelOptions.Instance.Power;
             }
         }
 
@@ -58,11 +58,11 @@ namespace AdvancedSolarPanel
                         float val = (float)instruction.operand;
                         switch (val)
                         {
-                            case DefaultPower:
-                                instruction.operand = (float)SolarPanelOptions.Instance.Watts;
+                            case DEFAULTPOWER:
+                                instruction.operand = (float)SolarPanelOptions.Instance.Power;
                                 break;
-                            case DefaultRate:
-                                instruction.operand = (float)(DefaultRate * SolarPanelOptions.Instance.Efficiency);
+                            case DEFAULTRATE:
+                                instruction.operand = DEFAULTRATE * SolarPanelOptions.Instance.Efficiency;
                                 break;
                             default:
                                 break;

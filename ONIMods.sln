@@ -7,10 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedSolarPanel", "Advan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdjustableBattery", "AdjustableBattery\AdjustableBattery.csproj", "{DC132618-7143-4FCE-8B14-2A5AF3864D57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freezer", "Freezer\Freezer.csproj", "{0BFAD8F4-82D5-41DE-917C-DC230A5DEBA2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquidMiniPumpEnhancement", "LiquidMiniPumpEnhancement\LiquidMiniPumpEnhancement.csproj", "{69D6DA46-6CC3-40EF-AAB1-883A4FDF7F31}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotatableLight", "RotatableLight\RotatableLight.csproj", "{E7DD737D-BA4E-47D8-A4EA-B04F6FE6F546}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConveyorLoader", "ConveyorLoader\ConveyorLoader.csproj", "{612E256B-167D-4E82-BB5A-0509E42BE335}"
@@ -29,14 +25,6 @@ Global
 		{DC132618-7143-4FCE-8B14-2A5AF3864D57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC132618-7143-4FCE-8B14-2A5AF3864D57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC132618-7143-4FCE-8B14-2A5AF3864D57}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0BFAD8F4-82D5-41DE-917C-DC230A5DEBA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0BFAD8F4-82D5-41DE-917C-DC230A5DEBA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0BFAD8F4-82D5-41DE-917C-DC230A5DEBA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0BFAD8F4-82D5-41DE-917C-DC230A5DEBA2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{69D6DA46-6CC3-40EF-AAB1-883A4FDF7F31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{69D6DA46-6CC3-40EF-AAB1-883A4FDF7F31}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{69D6DA46-6CC3-40EF-AAB1-883A4FDF7F31}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{69D6DA46-6CC3-40EF-AAB1-883A4FDF7F31}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E7DD737D-BA4E-47D8-A4EA-B04F6FE6F546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E7DD737D-BA4E-47D8-A4EA-B04F6FE6F546}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7DD737D-BA4E-47D8-A4EA-B04F6FE6F546}.Release|Any CPU.ActiveCfg = Release|Any CPU

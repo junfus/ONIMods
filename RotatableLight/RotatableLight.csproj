@@ -7,9 +7,8 @@
     <ProjectGuid>{E7DD737D-BA4E-47D8-A4EA-B04F6FE6F546}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <ModName>RotatableLight</ModName>
-    <RootNamespace>$(ModName)</RootNamespace>
-    <AssemblyName>$(ModName).mod</AssemblyName>
+    <RootNamespace>RotatableLight</RootNamespace>
+    <AssemblyName>$(RootNamespace).origin</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -38,7 +37,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <LibPath>$(MSBuildProgramFiles32)\Steam\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed</LibPath>
-    <DevModsPath>$(UserProfile)\Documents\Klei\OxygenNotIncluded\mods\Dev\$(ModName)</DevModsPath>
+    <DevModsPath>$(UserProfile)\Documents\Klei\OxygenNotIncluded\mods\Dev\$(RootNamespace)</DevModsPath>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="ILRepack">
@@ -85,10 +84,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="ILRepack" AfterTargets="Build">
-    <Exec Command="$(ILRepack) /internalize /lib:&quot;$(LibPath)&quot; /out:&quot;$(OutputPath)$(ModName).dll&quot; &quot;$(OutputPath)$(AssemblyName).dll&quot; &quot;$(OutputPath)PLib.dll&quot;" />
+    <Exec Command="$(ILRepack) /internalize /lib:&quot;$(LibPath)&quot; /out:&quot;$(OutputPath)$(RootNamespace).dll&quot; &quot;$(OutputPath)$(AssemblyName).dll&quot; &quot;$(OutputPath)PLib.dll&quot;" />
   </Target>
   <Target Name="Install" AfterTargets="ILRepack">
-    <Copy SourceFiles="$(OutputPath)$(ModName).dll" DestinationFolder="$(DevModsPath)" />
+    <Copy SourceFiles="$(OutputPath)$(RootNamespace).dll" DestinationFolder="$(DevModsPath)" />
     <Copy SourceFiles="mod.yaml" DestinationFolder="$(DevModsPath)" />
     <PropertyGroup>
       <ModInfo>supportedContent: ALL%0aminimumSupportedBuild: $(MinSupportedGameBuild)%0aversion: $(Version)%0aAPIVersion: 2</ModInfo>
